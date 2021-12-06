@@ -1,0 +1,10 @@
+[
+{"name": "CenturyLink", "website": "http://www.centurylink.com", "reviews_count": "882", "overall_rating": "Bad", "excellent": "15", "great": "3", "average": "7", "poor": "16", "bad": "841"},
+{"name": "Verizon Wireless", "website": "http://www.verizonwireless.com", "reviews_count": "2,731", "overall_rating": "Bad", "excellent": "134", "great": "16", "average": "29", "poor": "133", "bad": "2,419"},
+{"name": "Network Solutions", "website": "http://www.networksolutions.com", "info": "Find domain names, web hosting and online marketing for your website -- all in one place. Network Solutions helps businesses get online and grow online with domain name registration, web hosting and innovative online marketing services.", "reviews_count": "208", "overall_rating": "Bad", "excellent": "4", "great": "1", "average": "1", "poor": "1", "bad": "201"},
+{"name": "Social", "website": "http://social.com", "info": "Social tools.", "reviews_count": "307", "overall_rating": "Bad", "excellent": "13", "great": "3", "average": "5", "poor": "5", "bad": "281"},
+{"name": "Overstock.com", "website": "http://www.overstock.com", "reviews_count": "1,564", "overall_rating": "Bad", "excellent": "106", "great": "38", "average": "28", "poor": "72", "bad": "1,320"},
+{"name": "AT&T", "website": "http://www.att.com", "info": "Choose the best high speed Internet, home phone, wireless, advanced TV, and bundled services for you.", "mail": "39536800", "reviews_count": "4,517", "overall_rating": "Bad", "excellent": "210", "great": "26", "average": "30", "poor": "115", "bad": "4,136"},
+{"name": "Norton", "website": "http://www.norton.com", "reviews_count": "678", "overall_rating": "Bad", "excellent": "61", "great": "23", "average": "21", "poor": "27", "bad": "546"},
+{"name": "Consumer Cellular", "website": "http://www.consumercellular.com", "info": "Consumer Cellular provides the best no contract cellphones, smartphones, and cellphone plans available. Sign up today!", "reviews_count": "885", "overall_rating": "Bad", "excellent": "42", "great": "13", "average": "32", "poor": "72", "bad": "726"}
+]

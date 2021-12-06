@@ -14,10 +14,23 @@ from selenium.webdriver.support import expected_conditions as EC
 class TrustpilotSpider(scrapy.Spider):
     name = "trustpilot"
     allowed_domains = ["trustpilot.com"]
-    start_urls = ['https://www.trustpilot.com/categories/electronics_technology?page=46']
+    start_urls = ['https://www.trustpilot.com/categories/electronics_technology']
 
     def parse(self, response):
         self.logger.info('Parse function called on {}'.format(response.url))
+
+        path = 'trustpilot\driver\chromedriver.exe'
+        options = webdriver.ChromeOptions()
+        #options.add_argument("-headless")
+        #options.add_argument("--disable-gpu")
+        driver = webdriver.Chrome(executable_path=path, options=options)
+
+        self.logger.info('Inizione CICLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO')
+        for i in range(48):
+            self.logger.info('Inizione CICLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO')
+            for a in response.css('a.link_internal__YpiJI.button_button__3sN8k.button_large__3HOoE.button_primary__2eJ8_.link_button__13BH6.pagination-link_next__1ld6a.pagination-link_rel__3ZMei'):
+                driver.get(response.request.url)
+                yield response.follow(a, self.parse)
 
         # getting all the companies on the page
         companies = response.css('div.styles_categoryBusinessListWrapper__2H2X5 > a')
@@ -40,10 +53,9 @@ class TrustpilotSpider(scrapy.Spider):
 
         path = 'trustpilot\driver\chromedriver.exe'
         options = webdriver.ChromeOptions()
-        options.add_argument("--headless")
-        options.add_argument("--disable-gpu")
-        desired_capabilities = options.to_capabilities()
-        driver = webdriver.Chrome(executable_path=path, desired_capabilities=desired_capabilities)
+        #options.add_argument("-headless")
+        #options.add_argument("--disable-gpu")
+        driver = webdriver.Chrome(executable_path=path, options=options)
 
         driver.get(response.request.url)
 
