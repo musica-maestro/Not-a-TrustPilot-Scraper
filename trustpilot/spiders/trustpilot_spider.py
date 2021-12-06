@@ -14,7 +14,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class TrustpilotSpider(scrapy.Spider):
     name = "trustpilot"
     allowed_domains = ["trustpilot.com"]
-    start_urls = ['https://trustpilot.com/categories/electronics_technology']
+    start_urls = ['https://www.trustpilot.com/categories/electronics_technology?page=46']
 
     def parse(self, response):
         self.logger.info('Parse function called on {}'.format(response.url))
@@ -33,7 +33,7 @@ class TrustpilotSpider(scrapy.Spider):
             yield response.follow(company_trustpilot_url, self.parse_company)
 
         # go to Next page with companies
-        for a in response.css('a.link_internal__YpiJI.button_button__3sN8k.button_large__3HOoE.button_primary__2eJ8_.link_button__13BH6.pagination-link_next__1ld6a.pagination-link_rel__3ZMeia'):
+        for a in response.css('a.link_internal__YpiJI.button_button__3sN8k.button_large__3HOoE.button_primary__2eJ8_.link_button__13BH6.pagination-link_next__1ld6a.pagination-link_rel__3ZMei'):
             yield response.follow(a, self.parse)
 
     def parse_company(self, response):
