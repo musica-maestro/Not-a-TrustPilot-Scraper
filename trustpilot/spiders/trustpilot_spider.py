@@ -14,23 +14,10 @@ from selenium.webdriver.support import expected_conditions as EC
 class TrustpilotSpider(scrapy.Spider):
     name = "trustpilot"
     allowed_domains = ["trustpilot.com"]
-    start_urls = ['https://www.trustpilot.com/categories/electronics_technology']
+    start_urls = ['https://www.it.trustpilot.com/categories/electronics_technology?page1']
 
     def parse(self, response):
         self.logger.info('Parse function called on {}'.format(response.url))
-
-        path = 'trustpilot\driver\chromedriver.exe'
-        options = webdriver.ChromeOptions()
-        #options.add_argument("-headless")
-        #options.add_argument("--disable-gpu")
-        driver = webdriver.Chrome(executable_path=path, options=options)
-
-        self.logger.info('Inizione CICLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO')
-        for i in range(48):
-            self.logger.info('Inizione CICLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO')
-            for a in response.css('a.link_internal__YpiJI.button_button__3sN8k.button_large__3HOoE.button_primary__2eJ8_.link_button__13BH6.pagination-link_next__1ld6a.pagination-link_rel__3ZMei'):
-                driver.get(response.request.url)
-                yield response.follow(a, self.parse)
 
         # getting all the companies on the page
         companies = response.css('div.styles_categoryBusinessListWrapper__2H2X5 > a')
@@ -53,16 +40,17 @@ class TrustpilotSpider(scrapy.Spider):
 
         path = 'trustpilot\driver\chromedriver.exe'
         options = webdriver.ChromeOptions()
-        #options.add_argument("-headless")
-        #options.add_argument("--disable-gpu")
+        options.add_argument("-headless")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--disable-software-rasterizer")
         driver = webdriver.Chrome(executable_path=path, options=options)
 
         driver.get(response.request.url)
 
         # Implicit wait
-        driver.implicitly_wait(10)
+        driver.implicitly_wait(1)
         # Explicit wait
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 1)
 
         try:
             wait.until(EC.presence_of_element_located((By.CLASS_NAME, "styles_container__2lPJ7")))
